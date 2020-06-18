@@ -33,9 +33,9 @@
 
     <!-- Container -->
     <div class="container-fluid">
-      <!-- <div class="row"> -->
+      <div class="row">
         <!-- Nav Search  -->
-        <nav class="navbar navbar-light bg-light col-md-3 col-12">
+        <nav class="navbar navbar-light bg-light col-md-4 col-12">
           <h5>Search for a City:</h5>
           <form class="form-inline">
             <input
@@ -48,12 +48,66 @@
               <i class="fas fa-search"></i>
             </button>
           </form>
+
+          <!-- City Button List -->
+          <div class="list-group pt-4">
+            <button
+              type="button"
+              class="list-group-item list-group-item-action active"
+            >
+              Atlanta
+            </button>
+            <button
+              type="button"
+              class="list-group-item list-group-item-action"
+            >
+              Denver
+            </button>
+            <button
+              type="button"
+              class="list-group-item list-group-item-action"
+            >
+              New York City
+            </button>
+            <button
+              type="button"
+              class="list-group-item list-group-item-action"
+            >
+              Boston
+            </button>
+            <button
+              type="button"
+              class="list-group-item list-group-item-action"
+            >
+              San Francisco
+            </button>
+          </div>
         </nav>
 
-        <!-- Dashboard  -->
+        <div class="col-md-8">
+          <!-- Dashboard  -->
+          <div class="card mt-3">
+            <div class="card-body">
+              <h2 class="card-title" id="dashboard-title">City (mm/dd/yyyy) <i class="fas fa-sun"></i></h2>
+              <br>
+              <p class="card-text">
+                Temperature: <span id="temperature"></span>
+              </p>
+              <p class="card-text">
+                Humidity: <span id="humdidity"></span>
+              </p>
+              <p class="card-text">
+                Wind Speed: <span id="wind-speed"></span>
+              </p>
+              <p class="card-text">
+                UV Index: <span id="uv-index"></span>
+              </p>
+            </div>
+          </div>
 
-        <!-- 5 Day Forecast  -->
-      <!-- </div> -->
+          <!-- 5 Day Forecast  -->
+        </div>
+      </div>
     </div>
   </body>
 </html>
