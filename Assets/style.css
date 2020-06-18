@@ -1,0 +1,21 @@
+body {
+
+}
+
+header {
+    color: white;
+}
+
+h1 {
+    margin: 10px auto;
+}
+
+.form-inline {
+    flex-flow: row nowrap;
+    width: inherit;
+}
+
+@media (min-width: 576px);
+.form-inline .form-control {
+    width: 100%;
+}
