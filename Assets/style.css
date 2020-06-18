@@ -4,10 +4,15 @@ body {
 
 header {
     color: white;
+    text-align: center;
 }
 
 h1 {
     margin: 10px auto;
+}
+
+.navbar {
+    display: block;
 }
 
 .form-inline {
@@ -22,6 +27,8 @@ h1 {
 .card {
     width: 100%;
 }
+
+@media (min-width: 576px);
 
 @media (min-width: 576px);
 .form-inline .form-control {

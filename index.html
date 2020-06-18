@@ -35,16 +35,17 @@
     <div class="container-fluid">
       <div class="row">
         <!-- Nav Search  -->
-        <nav class="navbar navbar-light bg-light col-md-4 col-12">
+        <nav class="navbar navbar-light bg-light col-xl-4 col-12">
           <h5>Search for a City:</h5>
           <form class="form-inline">
             <input
               class="form-control mr-1"
               type="search"
+              id="search-field"
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-primary" type="submit">
+            <button class="btn btn-primary" id="search-btn" type="submit">
               <i class="fas fa-search"></i>
             </button>
           </form>
@@ -84,28 +85,61 @@
           </div>
         </nav>
 
-        <div class="col-md-8">
-          <!-- Dashboard  -->
-          <div class="card mt-3">
-            <div class="card-body">
-              <h2 class="card-title" id="dashboard-title">City (mm/dd/yyyy) <i class="fas fa-sun"></i></h2>
-              <br>
-              <p class="card-text">
-                Temperature: <span id="temperature"></span>
-              </p>
-              <p class="card-text">
-                Humidity: <span id="humdidity"></span>
-              </p>
-              <p class="card-text">
-                Wind Speed: <span id="wind-speed"></span>
-              </p>
-              <p class="card-text">
-                UV Index: <span id="uv-index"></span>
-              </p>
+        <div class="col-xl-8">
+          <div class="row m-1">
+            <!-- Dashboard  -->
+            <div class="card mt-3 pt-1 pb-3">
+              <div class="card-body">
+                <h2 class="card-title" id="dashboard-title">
+                  City (mm/dd/yyyy) <i class="fas fa-sun"></i>
+                </h2>
+                <br />
+                <p class="card-text">
+                  Temperature: <span id="temperature"></span>
+                </p>
+                <p class="card-text">Humidity: <span id="humdidity"></span></p>
+                <p class="card-text">
+                  Wind Speed: <span id="wind-speed"></span>
+                </p>
+                <p class="card-text">UV Index: <span id="uv-index"></span></p>
+              </div>
             </div>
           </div>
 
           <!-- 5 Day Forecast  -->
+          <h3 class="w-100 mt-3 ml-1">5-Day Forecast:</h3>
+          <div class="row mx-1 justify-content-between" id="5-days">
+            <div class="card bg-primary col-md-2 mb-2 pt-2 text-white">
+              <p>mm/dd/yyyy</p>
+              <p><i class="fas fa-cloud"></i></p>
+              <p>Temp: </p>
+              <p>Humidity: </p>
+            </div>
+            <div class="card bg-primary col-md-2 mb-2 pt-2 text-white">
+              <p>mm/dd/yyyy</p>
+              <p><i class="fas fa-cloud"></i></p>
+              <p>Temp: </p>
+              <p>Humidity: </p>
+            </div>
+            <div class="card bg-primary col-md-2 mb-2 pt-2 text-white">
+              <p>mm/dd/yyyy</p>
+              <p><i class="fas fa-cloud"></i></p>
+              <p>Temp: </p>
+              <p>Humidity: </p>
+            </div>
+            <div class="card bg-primary col-md-2 mb-2 pt-2 text-white">
+              <p>mm/dd/yyyy</p>
+              <p><i class="fas fa-cloud"></i></p>
+              <p>Temp: </p>
+              <p>Humidity: </p>
+            </div>
+            <div class="card bg-primary col-md-2 mb-2 pt-2 text-white">
+              <p>mm/dd/yyyy</p>
+              <p><i class="fas fa-cloud"></i></p>
+              <p>Temp: </p>
+              <p>Humidity: </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
