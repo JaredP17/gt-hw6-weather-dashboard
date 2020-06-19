@@ -4,9 +4,9 @@ $(document).ready(function () {
   const apiKey = "a33bca960d808238c931cd8829f838b1";
 
   var citiesSearched = JSON.parse(localStorage.getItem("cities"));
-    if (citiesSearched === null) {
-      citiesSearched = [];
-    }
+  if (citiesSearched === null) {
+    citiesSearched = [];
+  }
 
   // FUNCTION DEFINITIONS
 
@@ -15,9 +15,12 @@ $(document).ready(function () {
     // Save City name in local storage
     var city = response.name;
     if (!citiesSearched.includes(city)) {
-    citiesSearched.unshift(city); //push(city);
-    localStorage.setItem("cities", JSON.stringify(citiesSearched));
-    loadSearches();
+      citiesSearched.unshift(city);
+      if (citiesSearched.length > 10) {
+        citiesSearched.pop();
+      }
+      localStorage.setItem("cities", JSON.stringify(citiesSearched));
+      loadSearches();
     }
 
     // Set City/Current Date
