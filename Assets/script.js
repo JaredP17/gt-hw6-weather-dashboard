@@ -1,17 +1,28 @@
 $(document).ready(function () {
   // VARIABLES
   var now = moment().format("(M/D/YYYY)");
-  var apiKey = "a33bca960d808238c931cd8829f838b1";
-  var citiesSearched = [];
-  var currentCity;
+  const apiKey = "a33bca960d808238c931cd8829f838b1";
+
+  var citiesSearched = JSON.parse(localStorage.getItem("cities"));
+    if (citiesSearched === null) {
+      citiesSearched = [];
+    }
 
   // FUNCTION DEFINITIONS
 
   // Loads the main dashboard of current city weather
   function populateDashboard(response) {
+    // Save City name in local storage
+    var city = response.name;
+    if (!citiesSearched.includes(city)) {
+    citiesSearched.unshift(city); //push(city);
+    localStorage.setItem("cities", JSON.stringify(citiesSearched));
+    loadSearches();
+    }
+
     // Set City/Current Date
     $("#dashboard-title").html(
-      `${response.name} ${now} <img src="http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png" alt="${response.weather[0].description}">`
+      `${city} ${now} <img src="http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png" alt="${response.weather[0].description}">`
     );
 
     // Set temperature
@@ -79,7 +90,24 @@ $(document).ready(function () {
     });
   }
 
+  function loadSearches() {
+    if (citiesSearched !== null) {
+      var searches = $("#searched-cities");
+      searches.empty();
+      for (var i = 0; i < citiesSearched.length; i++) {
+        searches.append(
+          `<button type="button" class="list-group-item list-group-item-action">
+          ${citiesSearched[i]}
+          </button>`
+        );
+      }
+    } else {
+      citiesSearched = [];
+    }
+  }
+
   // FUNCTION CALLS
+  loadSearches();
 
   // EVENT LISTENERS
   $("#search-form").on("submit", function (event) {
