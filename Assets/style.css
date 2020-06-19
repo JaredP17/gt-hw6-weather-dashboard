@@ -1,36 +1,31 @@
-body {
-
-}
-
 header {
-    color: white;
-    text-align: center;
+  color: white;
+  text-align: center;
 }
 
 h1 {
-    margin: 10px auto;
+  margin: 10px auto;
 }
 
 .navbar {
-    display: block;
+  display: block;
 }
 
 .form-inline {
-    flex-flow: row nowrap;
-    width: inherit;
+  flex-flow: row nowrap;
+  width: inherit;
 }
 
 .list-group {
-    width: 100%;
+  width: 100%;
 }
 
 .card {
-    width: 100%;
+  width: 100%;
 }
 
-@media (min-width: 576px);
-
-@media (min-width: 576px);
-.form-inline .form-control {
+@media (min-width: 576px) {
+  .form-inline .form-control {
     width: 100%;
+  }
 }
