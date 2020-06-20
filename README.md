@@ -11,8 +11,8 @@ Check out the deployable site here: [Weather Dashboard](https://jaredp17.github.
 
 ## Preview
 
-The following GIF demonstrates the application functionality: *need to create gif*
-<!-- ![Standalone](./Assets/04-web-apis-homework-demo.gif) -->
+The following GIF demonstrates the application functionality:
+![Standalone](./Assets/weather_dashboard.gif)
 
 ## Credits
 
