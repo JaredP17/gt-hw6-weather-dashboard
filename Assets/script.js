@@ -69,6 +69,9 @@ $(document).ready(function () {
     // Set UV index
     setUVIndex(apiKey, lat, lon);
 
+    // Display dashboard
+    $("#dashboard").removeClass("d-none");
+
     // Populate 5-Day Forecast
     populateForecast(apiKey, lat, lon);
   }
