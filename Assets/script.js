@@ -6,9 +6,31 @@ $(document).ready(function () {
   var citiesSearched = JSON.parse(localStorage.getItem("cities"));
   if (citiesSearched === null) {
     citiesSearched = [];
+  } else {
+    queryCity(citiesSearched[0], apiKey, populateDashboard);
   }
 
   // FUNCTION DEFINITIONS
+
+  function queryCity(cityInput, apiKey, populateDashboard) {
+    var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=imperial`;
+  
+    // Get current response
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+    })
+      .then(function (response) {
+        console.log(response);
+  
+        // Populate dashboard
+        populateDashboard(response);
+      })
+      .catch(function (e) {
+        console.log(e);
+        alert(e.responseJSON.cod + ": " + e.responseJSON.message);
+      });
+  }
 
   // Loads the main dashboard of current city weather
   function populateDashboard(response) {
@@ -117,22 +139,7 @@ $(document).ready(function () {
     event.preventDefault();
     var cityInput = $("#search-input").val().trim();
     // console.log(cityInput);
-    var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=imperial`;
-
-    // Get current response
-    $.ajax({
-      url: queryURL,
-      method: "GET",
-    })
-      .then(function (response) {
-        console.log(response);
-
-        // Populate dashboard
-        populateDashboard(response);
-      })
-      .catch(function (e) {
-        console.log(e);
-        alert(e.responseJSON.cod + ": " + e.responseJSON.message);
-      });
+    queryCity(cityInput, apiKey, populateDashboard);
   });
 });
+
