@@ -7,7 +7,7 @@ Check out the deployable site here: [Weather Dashboard](https://jaredp17.github.
 
 1. Clone the repo or open deployable site.
    - Open index.html in default browser (if cloned).
-2. Take the quiz. Log your score.
+2. Search for any city.
 
 ## Preview
 
