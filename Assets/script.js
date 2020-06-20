@@ -6,9 +6,31 @@ $(document).ready(function () {
   var citiesSearched = JSON.parse(localStorage.getItem("cities"));
   if (citiesSearched === null) {
     citiesSearched = [];
+  } else {
+    queryCity(citiesSearched[0], apiKey, populateDashboard);
   }
 
   // FUNCTION DEFINITIONS
+
+  function queryCity(cityInput, apiKey, populateDashboard) {
+    var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=imperial`;
+  
+    // Get current response
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+    })
+      .then(function (response) {
+        console.log(response);
+  
+        // Populate dashboard
+        populateDashboard(response);
+      })
+      .catch(function (e) {
+        console.log(e);
+        alert(e.responseJSON.cod + ": " + e.responseJSON.message);
+      });
+  }
 
   // Loads the main dashboard of current city weather
   function populateDashboard(response) {
@@ -99,7 +121,7 @@ $(document).ready(function () {
       searches.empty();
       for (var i = 0; i < citiesSearched.length; i++) {
         searches.append(
-          `<button type="button" class="list-group-item list-group-item-action">
+          `<button type="button" class="city-btn list-group-item list-group-item-action">
           ${citiesSearched[i]}
           </button>`
         );
@@ -113,26 +135,20 @@ $(document).ready(function () {
   loadSearches();
 
   // EVENT LISTENERS
+  
+  // When search button is clicked
   $("#search-form").on("submit", function (event) {
     event.preventDefault();
     var cityInput = $("#search-input").val().trim();
     // console.log(cityInput);
-    var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=imperial`;
+    queryCity(cityInput, apiKey, populateDashboard);
+  });
 
-    // Get current response
-    $.ajax({
-      url: queryURL,
-      method: "GET",
-    })
-      .then(function (response) {
-        console.log(response);
-
-        // Populate dashboard
-        populateDashboard(response);
-      })
-      .catch(function (e) {
-        console.log(e);
-        alert(e.responseJSON.cod + ": " + e.responseJSON.message);
-      });
+  // When any city button added is clicked
+  $(".city-btn").on("click", function (event) {
+    var cityInput = $(this).text().trim();
+    queryCity(cityInput, apiKey, populateDashboard);
+    console.log(cityInput + " button pressed.");
   });
 });
+
