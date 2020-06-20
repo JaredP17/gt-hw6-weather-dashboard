@@ -121,7 +121,7 @@ $(document).ready(function () {
       searches.empty();
       for (var i = 0; i < citiesSearched.length; i++) {
         searches.append(
-          `<button type="button" class="list-group-item list-group-item-action">
+          `<button type="button" class="city-btn list-group-item list-group-item-action">
           ${citiesSearched[i]}
           </button>`
         );
@@ -135,11 +135,20 @@ $(document).ready(function () {
   loadSearches();
 
   // EVENT LISTENERS
+  
+  // When search button is clicked
   $("#search-form").on("submit", function (event) {
     event.preventDefault();
     var cityInput = $("#search-input").val().trim();
     // console.log(cityInput);
     queryCity(cityInput, apiKey, populateDashboard);
+  });
+
+  // When any city button added is clicked
+  $(".city-btn").on("click", function (event) {
+    var cityInput = $(this).text().trim();
+    queryCity(cityInput, apiKey, populateDashboard);
+    console.log(cityInput + " button pressed.");
   });
 });
 
