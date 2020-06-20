@@ -13,7 +13,7 @@ $(document).ready(function () {
   // FUNCTION DEFINITIONS
 
   function queryCity(cityInput, apiKey, populateDashboard) {
-    var queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=imperial`;
+    var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=imperial`;
   
     // Get current response
     $.ajax({
@@ -78,7 +78,7 @@ $(document).ready(function () {
 
   function setUVIndex(apiKey, lat, lon) {
     $.ajax({
-      url: `http://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`,
+      url: `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`,
       method: "GET",
     }).then(function (response) {
       console.log(response);
@@ -96,7 +96,7 @@ $(document).ready(function () {
 
   function populateForecast(apiKey, lat, lon) {
     $.ajax({
-      url: `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly&appid=${apiKey}&units=imperial`,
+      url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly&appid=${apiKey}&units=imperial`,
       method: "GET",
     }).then(function (response) {
       console.log(response);
