@@ -42,7 +42,7 @@ $(document).ready(function () {
         citiesSearched.pop();
       }
       localStorage.setItem("cities", JSON.stringify(citiesSearched));
-      loadSearches; // Reload search list
+      loadSearches(); // Reload search list
     }
 
     // Set City/Current Date
@@ -120,6 +120,7 @@ $(document).ready(function () {
 
   function loadSearches() {
     if (citiesSearched !== null) {
+      console.log("TEST");
       var searches = $("#searched-cities");
       searches.empty();
       for (var i = 0; i < citiesSearched.length; i++) {
@@ -148,8 +149,7 @@ $(document).ready(function () {
   });
 
   // When any city button added is clicked
-  $(".city-btn").on("click", function (event) {
-    event.preventDefault();
+  $(document).on("click", ".city-btn", function (event) {
     var cityInput = $(this).text().trim();
     queryCity(cityInput, apiKey, populateDashboard);
     console.log(cityInput + " button pressed.");
