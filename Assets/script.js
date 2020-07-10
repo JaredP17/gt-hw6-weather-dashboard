@@ -42,7 +42,7 @@ $(document).ready(function () {
         citiesSearched.pop();
       }
       localStorage.setItem("cities", JSON.stringify(citiesSearched));
-      loadSearches();
+      loadSearches; // Reload search list
     }
 
     // Set City/Current Date
