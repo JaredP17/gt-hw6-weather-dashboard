@@ -1,7 +1,7 @@
 # Description
 A weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.  Uses the OpenWeather API to retrieve weather data for cities.
 
-Check out the deployable site here: [Weather Dashboard](https://jaredp17.github.io/gt-hw6-weather-dashboard/).
+Check out the deployable site here: [Weather Dashboard](https://jaredp17.github.io/weather-dashboard/).
 
 ## Usage
 
